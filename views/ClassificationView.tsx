@@ -13,7 +13,17 @@ const mockClassificationData = [
     { x: 200, y: 250, z: 200, type: 'Type D' },
 ];
 
-const mockAnalysis = () => new Promise(resolve => setTimeout(() => resolve(mockClassificationData), 2000));
+const mockAnalysis = () => new Promise((resolve, reject) => {
+    setTimeout(() => {
+        // Simulate a potential failure to demonstrate error handling
+        if (Math.random() > 0.4) {
+            resolve(mockClassificationData);
+        } else {
+            reject(new Error("Failed to process the expression matrix. The file format might be incorrect or the server could not be reached."));
+        }
+    }, 2000);
+});
+
 
 const ClassificationView: React.FC = () => {
     return (

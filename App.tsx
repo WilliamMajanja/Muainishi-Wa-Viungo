@@ -1,9 +1,9 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState } from 'react';
 import { NAV_ITEMS } from './constants';
 import type { NavItemType } from './types';
 import Layout from './components/Layout';
-import Loader from './components/Loader';
 
+// Statically import components to avoid dynamic import issues in this environment
 import DashboardView from './views/DashboardView';
 import ClassificationView from './views/ClassificationView';
 import SegmentationView from './views/SegmentationView';
@@ -29,13 +29,7 @@ const App: React.FC = () => {
 
     return (
         <Layout activeNavItem={activeNavItem} setActiveNavItem={setActiveNavItem}>
-             <Suspense fallback={
-                <div className="flex items-center justify-center h-full">
-                    <Loader />
-                </div>
-            }>
-                {ActiveView ? <ActiveView /> : <div>Select an analysis</div>}
-            </Suspense>
+            {ActiveView ? <ActiveView /> : <div>Select an analysis</div>}
         </Layout>
     );
 };
