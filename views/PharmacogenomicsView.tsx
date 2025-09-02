@@ -29,7 +29,11 @@ const PharmacogenomicsView: React.FC = () => {
                         <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
                         <XAxis dataKey="name" stroke="#9ca3af" />
                         <YAxis stroke="#9ca3af" />
-                        <Tooltip contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155' }} />
+                        <Tooltip 
+                            cursor={{ fill: 'rgba(100, 116, 139, 0.2)' }}
+                            contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155' }} 
+                            wrapperStyle={{ zIndex: 1000 }}
+                        />
                         <Legend />
                         <Bar dataKey="response" stackId="a" fill="#8884d8" name="Responders" />
                         <Bar dataKey="noResponse" stackId="a" fill="#82ca9d" name="Non-Responders" />

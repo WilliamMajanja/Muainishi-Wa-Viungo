@@ -43,7 +43,17 @@ const MutationTrackingView: React.FC = () => {
                         <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
                         <XAxis dataKey="time" stroke="#9ca3af" />
                         <YAxis stroke="#9ca3af" label={{ value: 'Allele Frequency', angle: -90, position: 'insideLeft', fill: '#9ca3af' }} />
-                        <Tooltip contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155' }} />
+                        <Tooltip 
+                            cursor={{ stroke: '#64748b' }}
+                            contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155' }}
+                            wrapperStyle={{ zIndex: 1000 }}
+                            formatter={(value: number | string) => {
+                                if (typeof value === 'number') {
+                                    return value.toFixed(2);
+                                }
+                                return value;
+                            }}
+                        />
                         <Area type="monotone" dataKey="p53" stroke="#8884d8" fillOpacity={1} fill="url(#colorP53)" name="TP53" />
                         <Area type="monotone" dataKey="kras" stroke="#82ca9d" fillOpacity={1} fill="url(#colorKras)" name="KRAS" />
                         <Area type="monotone" dataKey="egfr" stroke="#ffc658" fillOpacity={1} fill="url(#colorEgfr)" name="EGFR" />

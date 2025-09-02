@@ -32,7 +32,10 @@ const IntegrationView: React.FC = () => {
                         <Radar name="Patient Group A" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
                         <Radar name="Control Group B" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6} />
                         <Legend />
-                         <Tooltip contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155' }} />
+                        <Tooltip 
+                            contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155' }}
+                            wrapperStyle={{ zIndex: 1000 }}
+                        />
                     </RadarChart>
                 </ResponsiveContainer>
             )}

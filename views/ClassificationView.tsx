@@ -40,7 +40,11 @@ const ClassificationView: React.FC = () => {
                         <XAxis type="number" dataKey="x" name="Gene A Expression" unit="" stroke="#9ca3af" />
                         <YAxis type="number" dataKey="y" name="Gene B Expression" unit="" stroke="#9ca3af" />
                         <ZAxis type="number" dataKey="z" range={[60, 400]} name="Cell Size" unit="μm" />
-                        <Tooltip cursor={{ strokeDasharray: '3 3' }} contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155' }} />
+                        <Tooltip 
+                            cursor={{ strokeDasharray: '3 3' }} 
+                            contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155' }}
+                            wrapperStyle={{ zIndex: 1000 }}
+                        />
                         <Legend />
                         <Scatter name="Type A" data={results.filter((d: any) => d.type === 'Type A')} fill="#8884d8" shape="star" />
                         <Scatter name="Type B" data={results.filter((d: any) => d.type === 'Type B')} fill="#82ca9d" shape="triangle" />
